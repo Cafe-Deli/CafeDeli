@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#111;
+    color:#fff;
+    font-family:Arial, sans-serif;
+    text-align:center;
+}
+
+.hero{
+    padding:40px 20px;
+}
+
+.hero h1{
+    color:#ff9800;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.hero-img{
+    width:90%;
+    max-width:500px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(255,152,0,.4);
+}
