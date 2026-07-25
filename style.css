@@ -103,4 +103,37 @@ font-size:22px;
 
 font-weight:bold;
 
+}/* Cart Button */
+
+.cart-btn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background:#ff9800;
+    color:white;
+    padding:15px 20px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    z-index:999;
+    text-decoration:none;
+}
+
+.cart-box{
+    background:#1b1b1b;
+    width:90%;
+    max-width:400px;
+    margin:20px auto;
+    padding:20px;
+    border-radius:15px;
+}
+
+.cart-box button{
+    background:#ff9800;
+    color:white;
+    border:none;
+    padding:15px;
+    width:100%;
+    border-radius:10px;
+    font-size:18px;
 }

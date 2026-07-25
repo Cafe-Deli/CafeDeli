@@ -13,7 +13,6 @@
 
 <body>
 
-
 <header class="navbar">
 
 <h2>🍔 Burger Menu</h2>
@@ -25,8 +24,8 @@
 </header>
 
 
-
 <section class="hero">
+
 
 <div class="menu-card">
 
@@ -36,8 +35,8 @@
 
 <p>$3.99</p>
 
-<button class="btn orange">
-Add to Cart
+<button class="btn orange" onclick="addToCart('Single Burger','$3.99')">
+🛒 Add to Cart
 </button>
 
 </div>
@@ -52,26 +51,9 @@ Add to Cart
 
 <p>$5.49</p>
 
-<button class="btn orange" onclick="orderWhatsApp()">
-🛒 Order via WhatsApp
+<button class="btn orange" onclick="addToCart('Double Burger','$5.49')">
+🛒 Add to Cart
 </button>
-
-<script>
-function orderWhatsApp(){
-
-let message =
-"Hello Cafe & Deli\n\n" +
-"Order: Single Burger\n" +
-"Price: $3.99\n" +
-"Quantity: 1";
-
-window.open(
-"https://wa.me/17576283836?text=" + encodeURIComponent(message),
-"_blank"
-);
-
-}
-</script>
 
 </div>
 
@@ -85,14 +67,70 @@ window.open(
 
 <p>$5.99</p>
 
-<button class="btn orange">
-Add to Cart
+<button class="btn orange" onclick="addToCart('Chicken B Sandwich','$5.99')">
+🛒 Add to Cart
 </button>
 
 </div>
 
 
 </section>
+
+
+<a class="cart-btn" onclick="sendWhatsApp()">
+🛒 Send Order
+</a>
+
+
+<script>
+
+let cart = [];
+
+
+function addToCart(name, price){
+
+cart.push({
+item:name,
+price:price
+});
+
+alert(name + " added to cart");
+
+}
+
+
+
+function sendWhatsApp(){
+
+if(cart.length == 0){
+
+alert("Cart is empty");
+
+return;
+
+}
+
+
+let message =
+"Hello Cafe & Deli\n\nOrder:\n";
+
+
+cart.forEach(function(product){
+
+message += "• " + product.item + " " + product.price + "\n";
+
+});
+
+
+window.open(
+"https://wa.me/17576283836?text=" + encodeURIComponent(message),
+"_blank"
+);
+
+
+}
+
+</script>
 
 
 </body>
