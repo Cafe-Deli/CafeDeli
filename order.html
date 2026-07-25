@@ -88,6 +88,47 @@ color:black;
 <div class="card">
 <a href="fish.html">🍤 Chicken Tenders & Fish</a>
 </div>
+<div class="card">
+<h2>📝 Your Order</h2>
 
+<input id="name" placeholder="Your Name">
+
+<select id="item">
+<option>Single Burger - $3.99</option>
+<option>Double Burger - $5.49</option>
+<option>Chicken B Sandwich - $5.99</option>
+<option>Chicken Over Rice - $9.99</option>
+<option>Lamb Over Rice - $9.99</option>
+<option>Steak Over Rice - $9.99</option>
+</select>
+
+<input id="qty" type="number" value="1" min="1">
+
+<button onclick="sendWhatsApp()">
+Send Order via WhatsApp
+</button>
+
+</div>
+
+<script>
+function sendWhatsApp(){
+
+let name = document.getElementById("name").value;
+let item = document.getElementById("item").value;
+let qty = document.getElementById("qty").value;
+
+let message =
+"Hello Cafe & Deli\n\n" +
+"Name: " + name +
+"\nOrder: " + item +
+"\nQuantity: " + qty;
+
+window.open(
+"https://wa.me/17576283836?text=" + encodeURIComponent(message),
+"_blank"
+);
+
+}
+</script>
 </body>
 </html>
