@@ -52,9 +52,26 @@ Add to Cart
 
 <p>$5.49</p>
 
-<button class="btn orange">
-Add to Cart
+<button class="btn orange" onclick="orderWhatsApp()">
+🛒 Order via WhatsApp
 </button>
+
+<script>
+function orderWhatsApp(){
+
+let message =
+"Hello Cafe & Deli\n\n" +
+"Order: Single Burger\n" +
+"Price: $3.99\n" +
+"Quantity: 1";
+
+window.open(
+"https://wa.me/17576283836?text=" + encodeURIComponent(message),
+"_blank"
+);
+
+}
+</script>
 
 </div>
 
