@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -93,35 +93,53 @@ color:black;
 
 <input id="name" placeholder="Your Name">
 
-<select id="item">
-<option>Single Burger - $3.99</option>
-<option>Double Burger - $5.49</option>
-<option>Chicken B Sandwich - $5.99</option>
-<option>Chicken Over Rice - $9.99</option>
-<option>Lamb Over Rice - $9.99</option>
-<option>Steak Over Rice - $9.99</option>
-</select>
 
-<input id="qty" type="number" value="1" min="1">
-
+<div id="cart">
+No items added yet
+</div>
 <button onclick="sendWhatsApp()">
 Send Order via WhatsApp
 </button>
 
 </div>
-
 <script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let cartBox = document.getElementById("cart");
+
+if(cart.length > 0){
+
+let text = "";
+
+cart.forEach(function(product){
+
+text += "🍔 " + product.item + " " + product.price + "<br>";
+
+});
+
+cartBox.innerHTML = text;
+
+}
+
+
 function sendWhatsApp(){
 
 let name = document.getElementById("name").value;
-let item = document.getElementById("item").value;
-let qty = document.getElementById("qty").value;
+
 
 let message =
 "Hello Cafe & Deli\n\n" +
 "Name: " + name +
-"\nOrder: " + item +
-"\nQuantity: " + qty;
+"\n\nOrder:\n";
+
+
+cart.forEach(function(product){
+
+message += "• " + product.item + " " + product.price + "\n";
+
+});
+
 
 window.open(
 "https://wa.me/967783301898?text=" + encodeURIComponent(message),
@@ -129,6 +147,8 @@ window.open(
 );
 
 }
+
 </script>
+
 </body>
 </html>
