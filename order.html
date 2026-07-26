@@ -114,7 +114,7 @@ let text = "";
 
 cart.forEach(function(product){
 
-text += "🍔 " + product.name + " " + product.price + "<br>";
+text += "🍔 " + (product.item || product.name) + " " + product.price + "<br>";
 
 });
 
@@ -136,7 +136,7 @@ let message =
 
 cart.forEach(function(product){
 
-message += "• " + product.item + " " + product.price + "\n";
+message += "• " + (product.item || product.name) + " " + product.price + "\n";
 
 });
 
@@ -145,6 +145,8 @@ window.open(
 "https://wa.me/967783301898?text=" + encodeURIComponent(message),
 "_blank"
 );
+localStorage.removeItem("cart");
+location.reload();
 
 }
 
