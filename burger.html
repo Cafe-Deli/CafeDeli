@@ -61,7 +61,7 @@
 
 <div class="menu-card">
 
-<img src="hero.jpg" alt="Burger">
+<img src="single-burger.jpg" alt="Single Burger">
 
 <h2>Chicken B Sandwich</h2>
 
@@ -119,21 +119,20 @@ cart.forEach(function(product){
 
 message += "• " + product.item + " " + product.price + "\n";
 
-});
-
 window.open(
 "https://wa.me/967783301898?text=" + encodeURIComponent(message),
 "_blank"
 );
 
-
-
-// مسح السلة بعد إرسال الطلب
+// مسح السلة
 localStorage.removeItem("cart");
-
 cart = [];
 
-alert("Order sent successfully");
+// الرجوع إلى صفحة الطلب
+setTimeout(function(){
+    window.location.href = "order.html";
+}, 500);
+
 }
 
 </script>
